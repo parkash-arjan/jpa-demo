@@ -31,4 +31,21 @@ public class CourseRepository {
 		Course course = findById(id);
 		entityManager.remove(course);
 	}
+
+	public void playWithEntityManager() {
+		Course course1 = new Course("This is new Java Course");
+		entityManager.persist(course1);
+		// Will be tracked by entity manager
+		course1.setName("This is new Java Course - Updated");
+		Course course2 = new Course("This is new Python Course");
+		entityManager.persist(course2);
+		course2.setName("This is new Python Course - Updated");
+		// Save changes of course1 and course2 into the database
+		entityManager.flush();
+		// detach will stop tracking of the passed object
+		// entityManager.detach(course1);
+		// entityManager.detach(course2);
+		// clear will stop tracking of all objects
+		// entityManager.clear();
+	}
 }
