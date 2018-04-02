@@ -47,5 +47,8 @@ public class CourseRepository {
 		// entityManager.detach(course2);
 		// clear will stop tracking of all objects
 		// entityManager.clear();
+		// set course1 with values present in databse
+		// will run select query on course first
+		// entityManager.refresh(course1);
 	}
 }
